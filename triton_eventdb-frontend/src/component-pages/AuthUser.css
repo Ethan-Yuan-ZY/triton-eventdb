@@ -1,0 +1,138 @@
+.login-page__main-div {
+  height: calc(100vh - 64px);
+  text-align: center;
+}
+
+.login-page__title-div {
+  height: 160px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+      rgba(4, 4, 19, 0.753),
+      rgba(26, 34, 53, 0.68),
+      rgba(25, 25, 28, 0.666)
+    ),
+    url("./../assets/images/login-page-bg.jpg");
+  background-size: cover;
+}
+
+.login-page__label-div {
+  display: flex;
+}
+
+.login-page__title-div h1 {
+  margin: 0 0 0 0;
+  color: white;
+}
+
+.login-page__title-div p {
+  color: #dfbd76;
+}
+
+.login-page__form-container-div {
+  background: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.194);
+  border: 1px solid rgba(46, 46, 46, 0.192);
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 430px;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+  .login-page__form-container-div {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .login-page__form-container-div {
+    width: 86%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .login-page__form-container-div {
+    width: 300px;
+  }
+  .login-page__title-div {
+    width: 360px;
+  }
+}
+
+.login-page-form-header-h2 {
+  font-family: inherit;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.auth-form {
+  width: 25rem;
+  /* display: table-cell; */
+  text-align: center;
+  vertical-align: middle;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.form-control label {
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-actions button {
+  font: inherit;
+
+  border-radius: 3px;
+  padding: 0.25rem 1rem;
+  margin-right: 1rem;
+
+  cursor: pointer;
+}
+
+.login-page-form-bottom-button-main-div {
+  height: 46px;
+}
+
+.login-page-form-bottom-button-main-div button {
+  width: 50%;
+  height: 100%;
+  background: rgba(245, 244, 244, 0.281);
+  border: 1px solid rgba(133, 133, 133, 0.274);
+  outline: none;
+  font-family: inherit;
+  color: gray;
+  cursor: pointer;
+}
+
+.login-page-form-bottom-button-main-div button:hover {
+  color: rgb(27, 27, 27);
+  background: rgba(201, 201, 201, 0.281);
+}
+
+.connect-content-header-para {
+  font-size: 13px;
+  color: rgb(65, 64, 64);
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.copy-right-content-div p {
+  margin-top: 5px;
+  margin-bottom: 2px;
+  font-size: 8px;
+  color: gray;
+}
+
+.login-page-sign-in-main-button:hover {
+  background: #182b49 !important;
+}

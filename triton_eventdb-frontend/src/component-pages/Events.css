@@ -1,0 +1,183 @@
+/* .events-main-div {
+  text-align: center;
+  padding: 1rem;
+  margin: 2rem auto;
+  border: 1px solid black;
+  width: 30rem;
+  max-width: 80%;
+} */
+
+.events-post-event-main-div {
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem auto;
+  border: 1px solid rgba(124, 124, 124, 0.233);
+  width: 30rem;
+  max-width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.events-post-event-add-event-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6rem;
+}
+
+.events-post-event-add-event-header-div p {
+  margin: 0 0 0 0;
+  font-family: inherit;
+}
+
+.events-post-event-add-event-main-para {
+  color: #dfbf76;
+}
+
+.post-event-divider-div {
+  background: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.important-pic {
+  width: 236px;
+  background-image: url("./../assets/images/122428.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.post-event-form-content-main-div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-event-form-content-div {
+  width: 96%;
+  height: 100%;
+  background: white;
+}
+
+.events-main-jumbotron-div {
+  background-size: auto;
+  height: 336px;
+
+  background: linear-gradient(
+      rgba(4, 4, 19, 0.753),
+      rgba(26, 34, 53, 0.68),
+      rgba(25, 25, 28, 0.666)
+    ),
+    url("./../assets/images/SD-Hacks.jpg");
+}
+
+.events-main-jumbotron-title-section-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  padding-left: 22vw;
+  padding-right: 22vw;
+}
+.events-main-jumbotron-title-section-div > div > h1 {
+  color: white;
+  text-align: center;
+}
+.events-main-jumbotron-title-section-div > p {
+  color: rgba(255, 255, 255, 0.824);
+}
+
+.events-main-jumbotron-title-section-div > div {
+  display: flex;
+  justify-content: center;
+}
+
+.events-main-jumbotron-content-button {
+  background: #dfbf76;
+  outline: none;
+  color: white;
+  border: none;
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.events-main-jumbotron-content-button:hover {
+  background: #182b49;
+  color: rgba(255, 255, 255, 0.708);
+}
+
+.events-main-jumbotron-div h1 {
+  margin: 0;
+}
+
+.event-main-page__img {
+  width: 100%;
+}
+
+.events__list {
+  width: 40rem;
+  max-width: 90%;
+  margin: 2rem auto;
+  list-style: none;
+  padding: 0;
+}
+
+.events__list-item {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid lightcoral;
+}
+
+.form-control input,
+.form-control textarea {
+  width: 100%;
+  display: block;
+}
+
+.form-control label {
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.testing {
+  background: white;
+  margin: auto;
+
+  width: 85vw;
+  height: 86vh;
+}
+
+.test-div {
+  width: 100%;
+  height: 136px;
+}
+
+.test-div h1 {
+  color: #182b49;
+}
+
+.test-div p {
+  margin: 0 0 0 0;
+  color: #dfbf76;
+}
+
+.test-p {
+  background: #dfbf76;
+  height: 5px;
+  width: inherit;
+  margin: 0;
+  position: absolute;
+  top: 0;
+}

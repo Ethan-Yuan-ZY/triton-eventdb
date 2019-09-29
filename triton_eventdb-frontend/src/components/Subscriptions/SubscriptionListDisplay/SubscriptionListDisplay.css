@@ -1,0 +1,71 @@
+.bookings__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 40rem;
+  max-width: 90%;
+}
+
+.subscribe-event-title-main-div {
+  width: 100%;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscribe-event-title-main-div h1 {
+  margin: 0;
+}
+
+.booking-display__list-item {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.following-display__list-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.following-display__event-div {
+  margin: 5px 5px 5px 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.194);
+  padding: 5px 5px 5px 5px;
+}
+
+@media screen and (max-width: 56em) {
+  .following-display__list-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 26em) {
+  .following-display__list-container {
+    grid-template-columns: repeat(1, 1fr);
+    background: green;
+  }
+}
+
+.event-image {
+  width: 100%;
+}
+
+.booking-display__list-item-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.booking-display__list-item-content div p {
+  margin: 0 0 0 0;
+}
+
+.booking-display__list-item-content-date-month {
+  color: rgb(208, 85, 85);
+}

@@ -1,0 +1,46 @@
+.contact-us-page-main-container-div {
+  height: calc(100vh - 64px);
+  background: rgb(246, 246, 246);
+}
+
+.contact-us-page-background-div {
+  height: 230px;
+  background: linear-gradient(
+      rgba(4, 4, 19, 0.5),
+      rgba(26, 34, 53, 0.445),
+      rgba(25, 25, 28, 0.438)
+    ),
+    url("./../assets/images/contact-us-page-bg.jpg");
+  background-size: cover;
+}
+
+.contact-us-page-content-main-div {
+  height: calc(100vh - 64px - 230px);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contact-us-page-form-main-div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-us-page-address-header-divider {
+  display: flex;
+}
+
+.contact-us-page-address-header-divider-para-1 {
+  background: #dfbd76;
+  height: 2px;
+  width: 410px;
+  margin: 0 0 0 0;
+}
+
+.contact-us-page-address-header-divider-para-2 {
+  background: rgb(219, 219, 219);
+  height: 1px;
+  width: 100%;
+  margin: 0 0 0 0;
+}

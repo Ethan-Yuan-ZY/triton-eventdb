@@ -1,0 +1,216 @@
+.event-item-detail__main-div {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: row;
+}
+
+.event-item-detail__main-div h1,
+.event-item-detail__main-div h2,
+.event-item-detail__main-div h3,
+.event-item-detail__main-div p {
+  margin: 0 0 0 0;
+}
+
+.event-item-detail__event-content-main-div {
+  width: 60vw;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.event-comments-icon-main-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.event-item-detail__user-public-content-main-div {
+  width: 40vw;
+  height: calc(100vh - 64px);
+}
+
+.event-detail__image {
+  padding-top: 20px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 750px) {
+  .event-item-detail__main-div {
+    height: 1060px;
+    display: flex;
+    flex-direction: column;
+  }
+  .event-item-detail__event-content-main-div {
+    width: 100vw;
+    height: 660px;
+  }
+
+  .event-item-detail__user-public-content-main-div {
+    width: 100vw;
+    height: 400px;
+  }
+
+  .event-item-detail__user-info-content-card-div {
+    width: 95%;
+  }
+}
+
+.event-item-detail__event-content-card-div {
+  height: 45vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.event-item-detail__event-content-container-div {
+  height: 100%;
+  padding: 2px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.event-item-detail__user-info-content-card-div {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 86%;
+  width: 86%;
+  padding: 5px 5px 5px 5px;
+}
+
+.event-item-detail__user-content-public-info-div {
+  height: 70%;
+}
+
+.event-item-detail__user-content-user-info-div {
+  height: 30%;
+}
+
+.event-item-detail__user-info-content-div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-item-detail__public-info-content-div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-display-info-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.user-seen-leave-comments-prompt {
+  display: flex;
+  flex-direction: row;
+}
+
+.discussion-board-div {
+  margin-left: 10px;
+  border: 1px solid rgba(172, 171, 171, 0.37);
+  width: 100%;
+  padding: 5px 5px 5px 5px;
+  background: rgb(240, 240, 240);
+}
+
+.user-seen-other-use-comments {
+  display: flex;
+  flex-direction: row;
+}
+
+.other-user-respond-comments {
+  height: 64px;
+  width: 100%;
+}
+
+.other-user-respond-parts {
+  height: 64px;
+  background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-item-detail-other-user-comment-content-div {
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 92%;
+  width: 96%;
+}
+
+.event-item-detail-other-user-comment-content-user-mention-p {
+  color: #dfbd76;
+}
+
+.event-item-detail-other-user-comment-content-timestamp-p {
+  font-size: 8px;
+  color: gray;
+}
+
+.event-item-detail-other-user-comment-content-comment-p {
+  font-size: 13px;
+}
+.event-item-detail-user-info-content-user-display-main-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.event-item-detail-user-info-content-user-display-username-div {
+  height: 40px;
+
+  margin-left: 6px;
+}
+
+.event-item-detail-user-info-content-user-display-username-div h1 {
+  font-size: 24px;
+  margin: 0 0 0 0;
+  font-family: inherit;
+}
+
+.event-item-detail-user-info-content-user-display-username-div p {
+  font-size: 9px;
+  margin: 0 0 0 0;
+  color: rgb(83, 83, 83);
+  font-family: inherit;
+}
+
+.event-item-deatil-user-info-content-user-num-events-div {
+  width: 40%;
+  height: 36px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-item-deatil-user-info-content-user-event-subscribers-num-div {
+  width: 60%;
+  height: 36px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-item-detail-user-info-user-num-events-outline {
+  height: 3px;
+  background: rgb(116, 216, 158);
+  width: 100%;
+  position: absolute;
+  bottom: -3px;
+}
+
+.event-item-detail-user-info-user-event-subscribers-num-outline {
+  height: 3px;
+  background: rgb(209, 116, 116);
+  width: 100%;
+  position: absolute;
+  bottom: -3px;
+}
