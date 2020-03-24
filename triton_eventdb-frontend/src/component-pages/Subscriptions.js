@@ -74,7 +74,6 @@ export default class SubscriptionsPage extends Component {
               _id
               title
             
-
             }
           }
         `
