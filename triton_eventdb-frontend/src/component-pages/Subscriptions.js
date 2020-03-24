@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AuthContext from "./../context/auth-context";
 import RenderingSpinner from "./../components/RenderingSpinner/RenderingSpinner";
 import SubscriptionListDisplay from "./../components/Subscriptions/SubscriptionListDisplay/SubscriptionListDisplay";
 
@@ -9,7 +8,10 @@ export default class SubscriptionsPage extends Component {
     subscriptions: []
   };
 
-  static contextType = AuthContext;
+  constructor(props) {
+    super(props);
+    console.log("Subscription Constructor");
+  }
 
   componentDidMount() {
     this.fetchBookings();
@@ -41,12 +43,12 @@ export default class SubscriptionsPage extends Component {
       body: JSON.stringify(requestBody),
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + this.context.token
+        Authorization: "Bearer " + this.props.user.token
       }
     })
       .then(res => {
         console.log("Lebron Jame");
-        console.log(this.context.token);
+        console.log(this.props.user.token);
         if (res.status !== 200 && res.status !== 201) {
           throw new Error("Failed");
         } else {
@@ -83,7 +85,7 @@ export default class SubscriptionsPage extends Component {
       body: JSON.stringify(requestBody),
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + this.context.token
+        Authorization: "Bearer " + this.props.user.token
       }
     })
       .then(res => {
@@ -118,7 +120,7 @@ export default class SubscriptionsPage extends Component {
           <SubscriptionListDisplay
             subscriptions={this.state.subscriptions}
             onDelete={this.unSubscribeEventHandler}
-            token={this.context.token}
+            token={this.props.user.token}
           />
         )}
       </React.Fragment>

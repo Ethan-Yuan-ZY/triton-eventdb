@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import AuthContext from "../../context/auth-context";
+
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -81,7 +82,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function MainNavigation(props) {
+function MainNavigation(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -151,88 +152,103 @@ export default function MainNavigation(props) {
 
   //sdsds
   return (
-    <AuthContext.Consumer>
-      {context => {
-        return (
-          <div className={classes.grow}>
-            <AppBar position="static" style={{ background: "#ffffff" }}>
-              <Toolbar>
-                <div>
-                  <img
-                    style={{ height: 60 }}
-                    src={require("./../../assets/images/logo.png")}
-                    alt=""
-                  />
-                </div>
-
-                <div className={classes.search}>
-                  <div className={classes.searchIcon}>
-                    <SearchIcon />
-                  </div>
-                  <InputBase
-                    style={{ color: "#000000" }}
-                    placeholder="Search not implemented..."
-                    classes={{
-                      root: classes.inputRoot,
-                      input: classes.inputInput
-                    }}
-                    inputProps={{ "aria-label": "search" }}
-                  />
-                </div>
-                <div className={classes.grow} />
-                <div className={classes.sectionDesktop}>
-                  <nav className="main-navigation__items">
-                    <ul className="main-navigation-ul">
-                      <li className="underline">
-                        <NavLink to="/about">About</NavLink>
-                      </li>
-                      <li className="underline">
-                        <NavLink to="/events">Events</NavLink>
-                      </li>
-                      {!context.token && (
-                        <li className="underline">
-                          <NavLink to="/auth">Login/Sign Up</NavLink>
-                        </li>
-                      )}
-                      {context.token && (
-                        <React.Fragment>
-                          <li className="underline">
-                            <NavLink to="/my-subscriptions">
-                              Subscriptions
-                            </NavLink>
-                          </li>
-                          <li>
-                            <button onClick={context.logout}>Logout</button>
-                          </li>
-                        </React.Fragment>
-                      )}
-                      <li>
-                        <NavLink to="/contact-us">
-                          <button className="contact-us-button">
-                            Contact Us
-                          </button>
-                        </NavLink>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div className={classes.sectionMobile}>
-                  <IconButton
-                    aria-label="show more"
-                    aria-controls={mobileMenuId}
-                    aria-haspopup="true"
-                    onClick={handleMobileMenuOpen}
-                  >
-                    <MoreIcon />
-                  </IconButton>
-                </div>
-              </Toolbar>
-            </AppBar>
-            {renderMobileMenu}
-            {renderMenu}
+    <div className={classes.grow}>
+      <AppBar position="static" style={{ background: "#ffffff" }}>
+        <Toolbar>
+          <div>
+            <img
+              style={{ height: 60 }}
+              src={require("./../../assets/images/logo.png")}
+              alt=""
+            />
           </div>
-        );
-      }}
-    </AuthContext.Consumer>
+
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              style={{ color: "#000000" }}
+              placeholder="Search not implemented..."
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput
+              }}
+              inputProps={{ "aria-label": "search" }}
+            />
+          </div>
+          <div className={classes.grow} />
+          <div className={classes.sectionDesktop}>
+            <nav className="main-navigation__items">
+              <ul className="main-navigation-ul">
+                <li className="underline">
+                  <NavLink to="/about">About</NavLink>
+                </li>
+                <li className="underline">
+                  <NavLink to="/events">Events</NavLink>
+                </li>
+                {!props.user.token && (
+                  <li className="underline">
+                    <NavLink to="/auth">Login/Sign Up</NavLink>
+                  </li>
+                )}
+                {props.user.token && (
+                  <React.Fragment>
+                    <li className="underline">
+                      <NavLink to="/my-subscriptions">Subscriptions</NavLink>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => {
+                          props.log_out();
+                        }}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </React.Fragment>
+                )}
+                <li>
+                  <NavLink to="/contact-us">
+                    <button className="contact-us-button">Contact Us</button>
+                  </NavLink>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+            >
+              <MoreIcon />
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
+    </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    log_out: () => {
+      dispatch({
+        type: "LOGOUT",
+        payload: null
+      });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainNavigation);

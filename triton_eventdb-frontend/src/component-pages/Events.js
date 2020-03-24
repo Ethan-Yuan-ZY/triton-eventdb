@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import axios from "axios";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
@@ -7,7 +8,7 @@ import TextField from "@material-ui/core/TextField";
 
 import EventListDisplay from "./../components/Events/EventListDisplay/EventListDisplay";
 import RenderingSpinner from "./../components/RenderingSpinner/RenderingSpinner";
-import AuthContext from "../context/auth-context";
+
 import "./Events.css";
 
 class EventsPage extends Component {
@@ -61,8 +62,6 @@ class EventsPage extends Component {
     this.fetchEvents();
   }
 
-  static contextType = AuthContext;
-
   invokeCreateEventHandler = () => {
     this.setState({
       create: true
@@ -115,7 +114,7 @@ class EventsPage extends Component {
         `
     };
 
-    const token = this.context.token;
+    const token = this.props.user.token;
 
     fetch("http://localhost:4000/graphqlAPI", {
       method: "POST",
@@ -143,7 +142,7 @@ class EventsPage extends Component {
             date: resData.data.postEvent.date,
             location: resData.data.postEvent.location,
             poster: {
-              _id: this.context.userId
+              _id: this.props.user.userId
             }
           });
           return { events: updatedEventList };
@@ -364,7 +363,7 @@ class EventsPage extends Component {
             </div>
           </div>
         </div>
-        {this.context.token && (
+        {this.props.user.token && (
           <div className="events-post-event-main-div">
             <div className="events-post-event-add-event-button-div">
               <Fab
@@ -389,8 +388,8 @@ class EventsPage extends Component {
         ) : (
           <EventListDisplay
             eventList={this.state.events}
-            eventAuthUserId={this.context.userId}
-            test={this.context.token}
+            eventAuthUserId={this.props.user.userId}
+            test={this.props.user.token}
           />
         )}
       </React.Fragment>
@@ -398,4 +397,21 @@ class EventsPage extends Component {
   }
 }
 
-export default EventsPage;
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    log_out: () => {
+      dispatch({
+        type: "LOGOUT",
+        payload: null
+      });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventsPage);

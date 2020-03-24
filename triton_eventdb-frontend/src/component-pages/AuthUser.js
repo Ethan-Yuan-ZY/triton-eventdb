@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import AuthContext from "../context/auth-context";
+
 import Divider from "@material-ui/core/Divider";
 import { SocialIcon } from "react-social-icons";
 import "./AuthUser.css";
 
-export default class AuthUserPage extends Component {
+class AuthUserPage extends Component {
   state = {
     isLogin: true,
     email: "",
@@ -14,8 +15,6 @@ export default class AuthUserPage extends Component {
     verifyPassword: "",
     username: ""
   };
-
-  static contextType = AuthContext;
 
   constructor(props) {
     super(props);
@@ -80,7 +79,8 @@ export default class AuthUserPage extends Component {
 
           if (this.state.isLogin) {
             console.log(resData.data);
-            this.context.login(
+
+            this.props.log_in(
               resData.data.loginUser.token,
               resData.data.loginUser.userId,
               resData.data.loginUser.tokenExpiration
@@ -218,3 +218,26 @@ export default class AuthUserPage extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    log_in: (token, userId, tokenExpiration) => {
+      dispatch({
+        type: "LOGIN",
+        payload: {
+          token,
+          userId,
+          tokenExpiration
+        }
+      });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthUserPage);
